@@ -59,7 +59,7 @@ async def upload_resume(file:UploadFile = File(...),
     try:
         save_to_jsonfile(response)
     except Exception as e:
-        logger.debug(f"Exception occured during saving the json resume file : {e}")
+        logger.error(f"Exception occured during saving the json resume file : {e}")
         
     return Resume(**response)  
         
@@ -72,7 +72,7 @@ async def get_json_resume():
     # logger.debug(f"Resume model dump json ===> {Resume}")
     folder_path = Path(__file__).resolve().parent
     resume_file=os.path.join(folder_path, "data", "resume.json")
-    logger.info(f"resume file path ----> {resume_file}")
+    logger.debug(f"resume file path ----> {resume_file}")
     data = ""
     try:
         if os.path.exists(resume_file):
@@ -80,15 +80,13 @@ async def get_json_resume():
                 # logger.debug(file)
                   data = json.load(file)
     except FileNotFoundError:
-        logger.info("The file does not exist.")
+        logger.error("The file does not exist.")
     
     except Exception as e:
         raise HTTPException(
             status_code=status.HTTP_204_NO_CONTENT,
             detail=f"Error getting the resume: {str(e)}"
         )  
-    
-    
     return data
 
 
@@ -99,7 +97,7 @@ async def get_jd_list():
     logger.info(f" inside the get get JD List method in main")
     folder_path = Path(__file__).resolve().parent
     jdFile=os.path.join(folder_path, "data", "joblist.json")
-    logger.info(f"JD file path ----> {jdFile}")
+    logger.debug(f"JD file path ----> {jdFile}")
     data = ""
     try:
         if os.path.exists(jdFile):
@@ -109,7 +107,7 @@ async def get_jd_list():
                 logger.debug(f"data of JD===> { data}")
                 
     except FileNotFoundError:
-        logger.info("The file does not exist.")
+        logger.error("The file does not exist.")
     
     except Exception as e:
         raise HTTPException(
@@ -128,9 +126,7 @@ async def save_resume(json_resume: dict):
     try:
         save_to_jsonfile(json_resume)
     except Exception as e:
-        logger.debug(f"Exception occured during saving the json resume file : {e}")
-
-
+        logger.error(f"Exception occured during saving the json resume file : {e}")
 
 
 @app.put(
@@ -143,10 +139,8 @@ async def save_jobdesc(jd: JDList):
         save_jobDesc(jd)
         return "success"
     except Exception as e:
-        logger.debug(f"Exception occured during saving the jd file : {e}")
+        logger.error(f"Exception occured during saving the jd file : {e}")
         return "Failure"
-
-
 
         
 if __name__ == "__main__":
