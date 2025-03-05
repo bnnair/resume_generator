@@ -1,8 +1,7 @@
 from abc import ABC, abstractmethod
 from langchain_core.messages import BaseMessage
-from loguru import logger
+from logging_config import logger
 from openai import OpenAI
-import os
 from langchain_openai import ChatOpenAI
 
 

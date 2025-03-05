@@ -1,6 +1,6 @@
 from PyPDF2 import PdfReader
 from langchain_community.document_loaders import PyPDFLoader
-from loguru import logger
+from logging_config import logger
 
 def parse_pdf(file):
     logger.debug("inside parse_pdf")

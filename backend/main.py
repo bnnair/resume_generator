@@ -6,9 +6,9 @@ import os
 import json
 from dotenv import load_dotenv
 from pathlib import Path
-from loguru import logger
+from logging_config import logger
 
-from typing import Union, List
+
 from utils.pdf_parser import load_pdf
 from utils.utils import save_to_jsonfile, save_jobDesc
 

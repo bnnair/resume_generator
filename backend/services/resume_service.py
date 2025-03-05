@@ -1,14 +1,12 @@
 # backend/main.py
-from fastapi import UploadFile, File, HTTPException, status, Depends,Query
-
 import os
-from dotenv import load_dotenv
 import tempfile
-from loguru import logger
+from logging_config import logger
+from dotenv import load_dotenv
 
+from fastapi import File, HTTPException, status
 from utils.config_manager import ConfigManager
 from utils.pdf_parser import load_pdf
-from utils.utils import save_to_jsonfile
 
 from models.resume import Resume
 
