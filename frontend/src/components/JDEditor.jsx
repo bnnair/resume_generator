@@ -13,7 +13,7 @@ function JDEditor({tempapi}) {
     useEffect(() => {
         const fetchJobDesc = async () => {
             try {
-                const response = await tempapi.get('/api/get-jd-list'); 
+                const response = await tempapi.get('/jds/get-jd-list'); 
                 
                 const jdList = response.data.jobDescription
                 console.log("response got----->", jdList)
@@ -65,7 +65,7 @@ function JDEditor({tempapi}) {
 
         try {
             console.log("updatedJD----->", updatedJD)
-            const response = await tempapi.put('api/save-jobdesc', 
+            const response = await tempapi.put('/jds/save-jobdesc', 
             {
                 jobDescription: updatedJD
             });

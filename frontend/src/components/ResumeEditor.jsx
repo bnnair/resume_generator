@@ -13,7 +13,7 @@ function ResumeEditor({tempapi}) {
             try {
             //     console.log("inside the fetchResume method", tempapi)
                 // setApi (tempapi)
-                const response = await tempapi.get('/api/get-json-resume'); 
+                const response = await tempapi.get('/resumes/get-json-resume'); 
                 console.log("response got----->", response)
                 setResumeData(response.data);
                 setLoading(false);
@@ -81,7 +81,7 @@ function ResumeEditor({tempapi}) {
     // Function to save the resume data to the backend
     const handleSave = async () => {
         try {
-            await tempapi.put('/api/save-resume', resumeData);  // Replace with your PUT/PATCH endpoint
+            await tempapi.put('/resumes/save-resume', resumeData);  // Replace with your PUT/PATCH endpoint
             alert('Resume saved successfully!');
         } catch (err) {
             setError(`Failed to save resume: ${err.message}`);

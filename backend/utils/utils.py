@@ -3,7 +3,7 @@ from pathlib import Path
 import json
 
 def save_to_jsonfile(resume: dict):
-    
+    logger.info("inside the save resume json file")
     json_resume_folder = Path(__file__).resolve().parent.parent
     logger.debug(f"json resume folder----> {json_resume_folder}")
     json_resume_file = json_resume_folder.joinpath("data", "resume.json")    
@@ -15,6 +15,7 @@ def save_to_jsonfile(resume: dict):
 
 
 def save_jobDesc(jobDesc : dict):
+    logger.info("inside the save job desc method..")
     jd_folder = Path(__file__).resolve().parent.parent
     logger.debug(f"jd folder----> {jd_folder}")
     jd_file = jd_folder.joinpath("data", "joblist.json")    

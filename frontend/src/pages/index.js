@@ -34,7 +34,7 @@ export default function Home() {
       const formData = new FormData();
       formData.append('file', file);
       
-      const response = await api.post('/api/upload-resume', formData, {
+      const response = await api.post('/resumes/upload-resume', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }

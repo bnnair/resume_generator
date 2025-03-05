@@ -1,7 +1,7 @@
 {
     "personalDetails": {
         "name": "Biju Nair",
-        "location": "Pune, Maharashtra",
+        "location": "Pune",
         "mobile": "9970155204",
         "email": "bnnair@yahoo.com"
     },
@@ -12,7 +12,7 @@
         {
             "company": "Fulcrum Digital Private Limited",
             "position": "Senior Technical Project Manager",
-            "duration": "Jan 2021 - Oct 2022",
+            "duration": "Jan 2021 – Oct 2022",
             "responsibilities": [
                 "Led two project teams consisting of 40+ resources, managing payment product enhancement for MasterCard (UK)",
                 "Managed fixed-bid project, ensuring delivery of a specific number of story points per iteration",
@@ -54,23 +54,17 @@
             "position": "Software Engineer / Developer",
             "duration": "Feb 2000 - May 2005",
             "responsibilities": null
-        },
-        {
-            "company": "Pursuing MTech from Bits Pilani",
-            "position": "Student",
-            "duration": "April 2022 - April 2024",
-            "responsibilities": "Project done during Mtech\n1. Elderly care application.\n Developed an application for fall and fire detection using computer vision and AWS services, delivering prompt alerts."
         }
     ],
     "education": [
         {
             "institution": "BITS, Pilani",
-            "degree": "M-Tech",
+            "degree": "MTech",
             "field_of_study": "Data Science Engineering",
-            "duration": "Nov 2021- Nov 2023"
+            "duration": "Nov 2021 – Nov 2023"
         },
         {
-            "institution": "Mumbai University",
+            "institution": "Unknown",
             "degree": "B.E",
             "field_of_study": "Instrumentation",
             "duration": "1999"
@@ -104,15 +98,15 @@
             "description": "from BITs, Pilani, Nov 2023"
         },
         {
-            "name": "Self Driving Car Nano Degree",
-            "description": "Completion of term 1 from Udacity.com (Dec 2018 to Feb 2019)"
+            "name": "Self Driving Car Nanodegree",
+            "description": "Completion of term 1 (Dec 2018 – Feb 2019) from Udacity.com"
         },
         {
             "name": "Data Science Course",
-            "description": "Completion certificate of six months from UpX Academy, a Tech Mahindra venture (Feb 2018 Ã¢â‚¬â€œ Aug 2018)"
+            "description": "Completion certificate of six months (Feb 2018 – Aug 2018) from UpX Academy, a Tech Mahindra venture"
         },
         {
-            "name": "AWS Solution Architect ( Associate Certification )",
+            "name": "AWS Solution Architect – Associate Certification",
             "description": "Sept 2017"
         },
         {
