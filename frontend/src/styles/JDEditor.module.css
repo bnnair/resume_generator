@@ -1,0 +1,111 @@
+.jdeditor {
+    max-width: 1200px;
+    margin: 0px 10px;
+    background: white;
+    border-radius: 2px;
+    font-family: sans-serif; /* Added a default font for better readability */
+}
+.jdeditor h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color : black;
+    margin: 2px 10px;
+    padding-bottom: 0px;
+ /* Added border-bottom to separate header */
+    /* border-bottom: 5px solid #e2e8f0; */
+}
+.jdeditor h2 {
+    font-size: 1rem; /* Increased h2 font size for better section heading */
+    font-weight: 600;
+    margin:0px 10px;
+    color: #2d3748;
+    padding-bottom: 0px;
+ /* Added border-bottom to separate section heading */
+    border-bottom: 5px solid #e2e8f0;
+}
+
+/* ===== Section Styling ===== */
+.jdeditor section {
+    margin-bottom: 5px; /* Increased margin bottom for sections */
+    padding: 10px 10px; /* Increased padding for sections */
+    background: #ffffff;
+    border-radius: 5px; /* Slightly more rounded corners */
+    border: 3px solid black; /* Added a border to sections for better definition */
+}
+
+.jdeditor label {
+    text-align: right; /* Right-align labels */
+    margin : 0px 10px;
+    font-weight: 500;
+    color: #4a6858;
+    text-wrap:wrap;
+    font-size: 1rem;
+    vertical-align: text-bottom; /* Align label text to the top */
+}
+
+.jdeditor table {
+    width: 100%; /* Table takes full width of section */
+    border-collapse: collapse; /* Prevent double borders */
+}
+
+.jdeditor table td {
+    padding: 4px; /* Vertical spacing between rows */
+    vertical-align: text-top; /* Align content to the top of the cell */
+    margin-left: 15px;
+    border : 1px;
+    text-align: left;
+    border: 1px solid rgb(94, 4, 4);
+}
+
+.jdeditor table tr {
+    border: 1px solid rgb(94, 4, 4);
+}
+
+.jdeditor select {
+    width: 40%; /* Calculate input width, subtract label width+margin+input's own padding */
+    padding: 0.2rem; /* Increased padding for input fields */
+    margin-bottom: 10px; /* Spacing below input fields */
+
+    border: 1px solid #e2e8f0; /* Thinner border for input fields */
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+    background-color: #f8fafc;
+    text-align: left;   
+}
+.jdeditor input[type="text"],
+.jdeditor textarea {
+    width: 90%; /* Calculate input width, subtract label width+margin+input's own padding */
+    padding: 0.2rem; /* Increased padding for input fields */
+    margin-bottom: 10px; /* Spacing below input fields */
+
+    border: 1px solid #e2e8f0; /* Thinner border for input fields */
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+    background-color: #f8fafc;
+    text-align: left;
+}
+
+.jdeditor textarea {
+    width: 95%;
+    height: 200px; /* Fixed height for textarea to accommodate at least 8 lines */
+    vertical-align: top; /* Align textarea to the top */
+    margin: 0px 10px;
+    padding: 0px;
+}
+
+.jdeditor button {
+    background-color: #007bff;
+    color: white;
+    padding: 0.75rem 0.8rem;
+    margin: 0px 10px;
+    border: 0px;
+    border-radius: 0px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  .jdeditor button:hover {
+    background-color: #0056b3;
+  }
