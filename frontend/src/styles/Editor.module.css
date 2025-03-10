@@ -135,11 +135,16 @@
     border-radius: 0px;
     cursor: pointer;
     font-size: 1rem;
-    margin: 5px 0px;
+    margin: 5px 16px;
   }
 
   .editor button:hover {
     background-color: #0056b3;
+  }
+
+  .editor button:disabled {
+    background-color:  #cccccc;
+    cursor: not-allowed;
   }
 
 /* Clearfix to prevent collapsing margins in some cases */

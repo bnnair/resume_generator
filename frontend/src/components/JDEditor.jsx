@@ -7,13 +7,14 @@ function JDEditor({tempapi}) {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
     const [currentJob, setCurrentJob] = useState();
-    const [saved, setSaved] = useState(false)
+
 
     // Fetch JD data from backend
     useEffect(() => {
         const fetchJobDesc = async () => {
             try {
-                const response = await tempapi.get('/jds/get-jd-list'); 
+                const show = "showAll"
+                const response = await tempapi.get(`/jds/get-jd-list/${show}`); 
                 
                 const jdList = response.data.jobDescription
                 console.log("response got----->", jdList)
@@ -37,7 +38,8 @@ function JDEditor({tempapi}) {
         console.log("e.target :", e.target)
 
         const { name, value } = e.target;
-
+        console.log("name :", name)
+        console.log("value :", value)
         setCurrentJob(prevJob => ({
             ...prevJob,
             [name]: name === 'resumeGenerated' ? value === 'true' : value,
@@ -45,7 +47,6 @@ function JDEditor({tempapi}) {
 
 
     const handleDelete = async () => {
-
         console.log("...........", jobList)
         console.log("current job======>", currentJob)
         console.log("current index ---->", currentJobIndex)
@@ -53,16 +54,26 @@ function JDEditor({tempapi}) {
         console.log("=====newList ----->", newList)
 
         saveJD(newList)
+        setJobList(newList)
+
+        alert('Job desc deleted successfully!');
+        console.log("Deleted Job:", currentJob);
+
+        if (currentJobIndex < jobList.length - 1) {
+            console.log("inside the comparison-1")
+            const nextIndex = currentJobIndex + 1;
+            setCurrentJobIndex(nextIndex);
+            setCurrentJob({ ...jobList[nextIndex] });
+        }else if (currentJobIndex > 0) {
+            console.log("inside the comparison-2")
+            const prevIndex = currentJobIndex - 1;
+            setCurrentJobIndex(prevIndex);
+            setCurrentJob({ ...jobList[prevIndex] });
+        }        
         
-        if (saved) {
-            alert('Job desc deleted successfully!');
-            console.log("Deleted Job:", currentJob);
-            console.log("Deleted Job Descriptions Array (for demonstration):", updatedJobDescriptions);
-        }       
     };
 
     const saveJD = async (updatedJD) => {
-
         try {
             console.log("updatedJD----->", updatedJD)
             const response = await tempapi.put('/jds/save-jobdesc', 
@@ -73,7 +84,6 @@ function JDEditor({tempapi}) {
           } catch (error) {
             console.error('Error:', error);
           }
-
     };
 
 
@@ -91,14 +101,14 @@ function JDEditor({tempapi}) {
         // 2. Or call an API to save the data to a backend, and then update the local state upon success.
 
         saveJD(updatedJobDescriptions)
-        if (saved) {
-            alert('Job desc saved successfully!');
-            console.log("Saved Job:", currentJob);
-            console.log("Updated Job Descriptions Array (for demonstration):", updatedJobDescriptions);
-        }
+        setJobList(updatedJobDescriptions)
+        alert('Job desc saved successfully!');
+        console.log("Saved Job:", currentJob);
+        console.log("Updated Job Descriptions Array (for demonstration):", updatedJobDescriptions);
     };
 
     const handleNextJob = () => {
+        console.log("inside the next job method..")
         if (currentJobIndex < jobList.length - 1) {
             const nextIndex = currentJobIndex + 1;
             setCurrentJobIndex(nextIndex);
@@ -109,6 +119,7 @@ function JDEditor({tempapi}) {
     };
 
     const handlePreviousJob = () => {
+        console.log("inside previous job method")
         if (currentJobIndex > 0) {
             const prevIndex = currentJobIndex - 1;
             setCurrentJobIndex(prevIndex);
@@ -117,6 +128,28 @@ function JDEditor({tempapi}) {
             alert("You are at the first Job Description.");
         }
     };
+
+    // Function to add a new item to an array section
+    const handleAddItem = () => {
+        const nextIndex = jobList.length
+        console.log("next Index---->", nextIndex)
+        setCurrentJobIndex(nextIndex)
+        console.log("jobList====>", jobList)
+        // Initialize a new job with default properties
+        const newJob = {
+            company: "",
+            jobTitle: "",
+            jobLink: "",
+            jobLocation: "",
+            resumeGenerated: false,
+            jobDesc:""
+        };
+
+        setJobList(prevJobList =>[...prevJobList, newJob] )
+        setCurrentJob(newJob)
+        console.log("jobList after ====>", jobList)
+    };
+
 
     // if (jobList.length === 0) {
     //     return <div>No job descriptions available.</div>; // Handle empty list case
@@ -146,7 +179,7 @@ function JDEditor({tempapi}) {
                                         type="text"
                                         id="company"
                                         name="company"
-                                        value={currentJob.company}
+                                        value={currentJob?.company || ""}
                                         onChange={handleInputChange}
                                     />
                                 </td>
@@ -158,7 +191,7 @@ function JDEditor({tempapi}) {
                                         type="text"
                                         id="title"
                                         name="jobTitle"
-                                        value={currentJob.jobTitle}
+                                        value={currentJob?.jobTitle || ""}
                                         onChange={handleInputChange}
                                     />
                                 </td>
@@ -170,7 +203,7 @@ function JDEditor({tempapi}) {
                                         type="text"
                                         id="link"
                                         name="jobLink"
-                                        value={currentJob.jobLink}
+                                        value={currentJob?.jobLink || ""}
                                         onChange={handleInputChange}
                                     />
                                 </td>
@@ -182,7 +215,7 @@ function JDEditor({tempapi}) {
                                         type="text"
                                         id="location"
                                         name="jobLocation"
-                                        value={currentJob.jobLocation}
+                                        value={currentJob?.jobLocation || ""}
                                         onChange={handleInputChange}
                                     />
                                 </td>
@@ -204,7 +237,7 @@ function JDEditor({tempapi}) {
                                     <textarea
                                         id="jobDesc"
                                         name="jobDesc"
-                                        value={currentJob.jobDesc}
+                                        value={currentJob?.jobDesc || ""}
                                         onChange={handleInputChange}
                                     />
                                 </td>
@@ -223,6 +256,9 @@ function JDEditor({tempapi}) {
                         </button>
                         <button  onClick={handleSave}>
                             Save
+                        </button>
+                        <button  onClick={handleAddItem}>
+                            Add
                         </button>
                     </div>
                 </section>

@@ -5,12 +5,12 @@ from logging_config import logger
 from dotenv import load_dotenv
 
 from fastapi import File, HTTPException, status
-from utils.config_manager import ConfigManager
+from services.llm.config_manager import ConfigManager
 from utils.pdf_parser import load_pdf
 
 from models.resume import Resume
 
-from services.llm_manager import AIAdapter
+from services.llm.llm_manager import AIAdapter
 
 from langchain_core.output_parsers import JsonOutputParser
 from langchain_core.prompts import PromptTemplate

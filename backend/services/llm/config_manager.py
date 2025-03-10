@@ -21,8 +21,8 @@ class ConfigManager:
         
     @staticmethod
     def update_config() -> tuple:
-        secrets_file = Path(__file__).resolve().parent.parent / 'data' / 'secrets.yaml'
-        # logger.debug(f"secrets_file : {secrets_file}")
+        secrets_file = Path(__file__).resolve().parents[2] / 'data' / 'secrets.yaml'
+        logger.debug(f"secrets_file : {secrets_file}")
         
         if not secrets_file.exists():
             raise FileNotFoundError(

@@ -36,7 +36,12 @@ async def http_exception_handler(request, exc):
         status_code=exc.status_code,
         content={"detail": exc.detail},
     )
-        
+
+
+
+
+
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(
