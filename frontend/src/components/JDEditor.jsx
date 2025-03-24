@@ -203,7 +203,7 @@ function JDEditor({tempapi}) {
                                         type="text"
                                         id="link"
                                         name="jobLink"
-                                        value={currentJob?.jobLink || ""}
+                                        value={currentJob?.jobLink || "Not Applicable"}
                                         onChange={handleInputChange}
                                     />
                                 </td>

@@ -141,7 +141,7 @@ class SkillOptimizer(SectionOptimizer):
         template = """
         Analyze the provided job description (JD) and context to extract relevant skills. Consolidate the skills \
         from both sources into a single list, eliminating duplicates. 
-        Then, Combine and group these skills into high-level, relevant categories such as:
+        Then, Combine and group these skills into high-level, relevant categories as given below:
         - Project Management
         - Data Science
         - Cloud Computing
